@@ -1,0 +1,171 @@
+/* General Map Styling */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.leaflet-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden; /* Ensure no overflow */
+}
+
+/* Custom Cluster Icon Styling */
+.custom-cluster-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff6b6b;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+  animation: pulse 1.5s infinite; /* Added pulse animation */
+}
+
+.custom-cluster-icon:hover {
+  transform: scale(1.2);
+  background-color: #ff5733;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Custom Marker Styling */
+.custom-marker {
+  border: 2px solid #ff6b6b;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.custom-marker:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.custom-marker img {
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.custom-marker:hover img {
+  transform: scale(1.1);
+}
+
+/* Attribution Styling */
+.leaflet-control-attribution {
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 2px 5px;
+  font-size: 12px;
+  text-align: left;
+  pointer-events: auto; /* Ensure the attribution is clickable */
+}
+
+.leaflet-control-attribution a {
+  color: #0078a8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Custom Name Box Styling */
+.name-box {
+  position: absolute;
+  bottom: 20px; /* Moved lower */
+  right: 10px;
+  color: black;
+  font-size: 14px; /* Slightly increased for better readability */
+  font-weight: normal;
+  z-index: 1001;
+  pointer-events: none; /* Prevent interaction with this text */
+}
+
+/* Legend Styling */
+.legend {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 1002;
+  max-height: 90%; /* Limit height for scrolling */
+  overflow-y: auto; /* Enable scrolling for long legends */
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  width: 250px;
+}
+
+.legend h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.legend ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend ul li {
+  margin-bottom: 8px;
+  color: #0078a8;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.legend ul li:hover {
+  color: #ff5733;
+  text-decoration: none;
+}
+
+/* Responsive Design for Legend */
+@media (max-width: 768px) {
+  .legend {
+    width: 200px;
+    font-size: 12px;
+  }
+
+  .name-box {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .legend {
+    width: 150px;
+    font-size: 10px;
+  }
+
+  .name-box {
+    font-size: 10px;
+  }
+}
